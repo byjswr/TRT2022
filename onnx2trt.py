@@ -13,7 +13,7 @@ import onnxruntime
 import tensorrt as trt
 import pycuda.driver as cuda
 import pycuda.autoinit
-
+G_LOGGER = trt.Logger(trt.Logger.VERBOSE)
 
 class MyAlgorithmSelector(trt.IAlgorithmSelector):
 
