@@ -85,6 +85,7 @@ def infer_algorithm_selector_onnx():
     profile.set_shape(attention_mask.name, [6,12,709,709], [6,12,709,709], [6,12,709,709])
     config.add_optimization_profile(profile)
     config.set_flag(trt.BuilderFlag.DEBUG)
+    config.set_flag(trt.BuilderFlag.PREFER_PRECISION_CONSTRAINTS)
     config.clear_flag(trt.BuilderFlag.TF32)
     config.profiling_verbosity = trt.ProfilingVerbosity.DETAILED
     config.flags = config.flags | (1 << int(trt.BuilderFlag.STRICT_TYPES)) | (1 << int(trt.BuilderFlag.FP16))
